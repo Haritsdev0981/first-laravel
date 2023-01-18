@@ -24,7 +24,7 @@
                                     <form action="{{route('kelas.destroy', [$row->id])}}" method="post" onsubmit="return confirm('Apakah Anda akan menghapus data ini?')">
                                         @csrf
                                         {{method_field('DELETE')}}
-                                        <a href="#" class="btn btn-warning">Edit</a>
+                                        <a href="{{route('kelas.edit', [$row->id])}}" class="btn btn-warning">Edit</a>
                                         <button type="submit" class="btn btn-danger">Hapus</button>
                                     </form>
                                 </td>

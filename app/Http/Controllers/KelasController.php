@@ -61,7 +61,7 @@ class KelasController extends Controller
     public function edit($id)
     {
         $kelas = Kelas::findOrFail($id);
-        return view('edit', compact($kelas));
+        return view('edit', compact('kelas'));
     }
 
     /**
@@ -71,9 +71,12 @@ class KelasController extends Controller
      * @param  \App\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kelas $kelas)
+    public function update(Request $request, $id)
     {
-        //
+        $kelas = Kelas::findOrFail($id);
+        $data = $request->all();
+        $kelas->update($data);
+        return redirect('/home');
     }
 
     /**
