@@ -58,9 +58,10 @@ class KelasController extends Controller
      * @param  \App\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kelas $kelas)
+    public function edit($id)
     {
-        //
+        $kelas = Kelas::findOrFail($id);
+        return view('edit', compact($kelas));
     }
 
     /**
@@ -81,8 +82,10 @@ class KelasController extends Controller
      * @param  \App\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kelas $kelas)
+    public function destroy($id)
     {
-        //
+        $data = Kelas::findOrFail($id);
+        $data->delete();
+        return back();
     }
 }

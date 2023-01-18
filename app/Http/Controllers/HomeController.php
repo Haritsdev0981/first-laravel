@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $kelas = Kelas::all();
-        return view('home', compact($kelas));
+        return view('home', compact('kelas'));
     }
 }
