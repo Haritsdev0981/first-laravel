@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Siswa;
+use App\Kelas;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -25,7 +26,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        $kelas = Kelas::all();
+        return view('siswa.create', compact('kelas'));
     }
 
     /**
@@ -36,7 +38,9 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Siswa::create($input);
+        return redirect('/siswa');
     }
 
     /**
@@ -56,9 +60,10 @@ class SiswaController extends Controller
      * @param  \App\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Siswa $siswa)
+    public function edit($id)
     {
-        //
+        $siswa = Siswa::findOrFail($id);
+        return view('edit', compact('siswa'));
     }
 
     /**
@@ -79,8 +84,10 @@ class SiswaController extends Controller
      * @param  \App\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Siswa $siswa)
+    public function destroy($id)
     {
-        //
+        $data = Siswa::findOrFail($id);
+        $data->delete();
+        return back();
     }
 }

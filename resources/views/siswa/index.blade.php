@@ -7,6 +7,7 @@
             <div class="card mb-4">
                 <div class="card-header">Data Siswa</div>
                 <div class="table-responsive">
+                    <a href="/create" class="btn btn-success">Tambahkan Siswa</a>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -21,7 +22,7 @@
                                 <td>{{$row->nama}}</td>
                                 <td>{{$row->jurusan}}</td>
                                 <td>
-                                    <form action="#" method="post" onsubmit="return confirm('Apakah Anda akan menghapus data ini?')">
+                                    <form action="{{route('siswa.destroy', [$row->id])}}" method="post" onsubmit="return confirm('Apakah Anda akan menghapus data ini?')">
                                         @csrf
                                         {{method_field('DELETE')}}
                                         <a href="#" class="btn btn-warning">Edit</a>
