@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('kelas','KelasController');
 // type write route::recosurce('nameUrl', 'nameController');
+
+Route::resource('siswa', 'SiswaController');
