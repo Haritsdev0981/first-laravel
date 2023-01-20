@@ -63,7 +63,8 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::findOrFail($id);
-        return view('edit', compact('siswa'));
+        $kelas = Kelas::all();
+        return view('siswa.editsiswa', compact('siswa', 'kelas'));
     }
 
     /**
@@ -73,9 +74,12 @@ class SiswaController extends Controller
      * @param  \App\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Siswa $siswa)
+    public function update(Request $request, $id)
     {
-        //
+        $siswa = Siswa::findOrFail($id);
+        $data = $request->all();
+        $siswa->update($data);
+        return redirect('/siswa');
     }
 
     /**
@@ -87,7 +91,13 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         $data = Siswa::findOrFail($id);
+        // $data::all()->delete();
         $data->delete();
         return back();
     }
+    // public function deleteAll($id){
+    //     $data = Siswa::finOrFail($id);
+    //     Siswa::truncate($data);
+    //     return back();
+    // }
 }

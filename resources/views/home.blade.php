@@ -6,7 +6,9 @@
         <div class="col-md-8">
             <div class="card mb-4">
                 <div class="card-header">Data Kelas</div>
+                <div class="card-body">
                 <div class="table-responsive">
+                <a href="/siswa" class="btn btn-info mb-2">Data Siswa</a>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -32,6 +34,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
 
