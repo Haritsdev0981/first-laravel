@@ -23,3 +23,6 @@ Route::resource('kelas','KelasController');
 // type write route::recosurce('nameUrl', 'nameController');
 
 Route::resource('siswa', 'SiswaController');
+Route::resource('task', 'TaskController');
+
+Route::view('/tampilan', 'template.dashboard');
