@@ -25,7 +25,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $task = Task::all();
+        return view('task.create', compact('task'));
     }
 
     /**
@@ -36,7 +37,16 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Task::create($input);
+        // dd($input);
+
+        return redirect('/task');
+    }
+
+    public function detail($id) {
+        $task = Task::findOrFail($id);
+        return view('task.detail', compact('task'));
     }
 
     /**
@@ -79,8 +89,15 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy($id)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->delete();
+        return back();
     }
 }

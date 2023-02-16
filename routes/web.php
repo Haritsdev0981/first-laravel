@@ -24,5 +24,10 @@ Route::resource('kelas','KelasController');
 
 Route::resource('siswa', 'SiswaController');
 Route::resource('task', 'TaskController');
+Route::get('task/create', 'TaskController@create');
+Route::post('/savetask', 'TaskController@store');
+Route::get('/detail/{id}', 'TaskController@detail');
+// Route::get('/edit/{id}', 'TaskController@edit');
+Route::get('/delete/{id}', 'TaskController@delete');
 
 Route::view('/tampilan', 'template.dashboard');
