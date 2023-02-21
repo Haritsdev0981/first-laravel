@@ -46,7 +46,7 @@
                                         <td>{{$row->description}}</td>
                                         <td>
                                             <a href="{{ url('detail/'.$row->id) }}" class="btn bg-primary text-white" >Detail</a>
-                                            <a href="{{ url('edit/'.$row->id) }}" class="btn bg-warning text-white" >Edit</a>
+                                            <a href="{{ url('taskedit/'.$row->id) }}" class="btn bg-warning text-white" >Edit</a>
                                             <a href="{{ url('delete/'.$row->id) }}" class="btn bg-danger text-white">Delete</a>
                                         </td>
 

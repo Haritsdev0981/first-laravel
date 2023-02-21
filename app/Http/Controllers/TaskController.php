@@ -66,9 +66,10 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit($id)
     {
-        //
+        $task = Task::findOrFail($id);
+        return view('task.edit', compact('task'));
     }
 
     /**
@@ -78,9 +79,13 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, $id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $data = $request->all();
+        $task->update($data);
+        return redirect('/task');
+
     }
 
     /**
