@@ -28,7 +28,18 @@ Halama Profile
                                     </td>
                                     <td>{{$row->nama}}</td>
                                     <td>{{$row->nik}}</td>
-                                    @endforeach
+                                    <td>
+                                        <!-- <form action="#" method="post">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <a href="{{route('profile.edit', $row->id)}}" class="btn btn-warning">Ubah</a>
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form> -->
+                                            <a href="{{route('profile.edit', $row->id)}}" class="btn btn-warning">Ubah</a>
+                                            <a href="{{url('deleteprofile/'.$row->id)}}" class="btn btn-danger">Hapus</a>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

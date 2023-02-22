@@ -35,3 +35,4 @@ Route::get('/delete/{id}', 'TaskController@delete');
 Route::view('/tampilan', 'template.dashboard');
 
 Route::resource('profile', 'ProfileController');
+Route::get('/deleteprofile/{id}', 'ProfileController@delete');
